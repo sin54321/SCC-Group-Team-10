@@ -58,7 +58,7 @@ def cuckoo_init(quiet=False, debug=False, artwork=False, test=False):
         except KeyboardInterrupt:
             return
 
-    init_logging()
+    init_loggging()
 
     if quiet:
         log.setLevel(logging.WARN)
