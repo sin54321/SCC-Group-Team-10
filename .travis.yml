@@ -22,7 +22,7 @@ script:
     - python cuckoo.py --debug --test
     
     #- coverage run tests/*
-    - py.test --cov=unittest tests/*
+    - py.test --cov = unittest tests/*
     - codeclimate-test-reporter --file .coverage
     - coverage report -m
     #- nosetests --with-coverage 
