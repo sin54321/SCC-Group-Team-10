@@ -4,7 +4,15 @@ branches:
 language: python
 python:
     - 2.7
-
+before_install:
+    - sudo apt-get update -qq
+    - sudo apt-get install python-dev python-libvirt libffi-dev libssl-dev libxml2-dev libxslt1-dev
+    - wget http://downloads.sourceforge.net/project/ssdeep/ssdeep-2.12/ssdeep-2.12.tar.gz
+    - tar -zxvf ssdeep-2.12.tar.gz
+    - cd ssdeep-2.12
+    - ./configure && make
+    - sudo make install
+    - cd ..
 install:
     - pip install -r requirements.txt
     - pip install coverage
@@ -12,9 +20,9 @@ install:
 script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
-    - coverage run tests/*
-    #- py.test --cov=cuckoo tests/*
-    #- codeclimate-test-reporter --file .coverage
+    #- coverage run tests/*
+    - py.test --cov=cuckoo tests/*
+    - codeclimate-test-reporter --file .coverage
     #- nosetests --with-coverage 
 after_success:
   - codeclimate-test-reporter
