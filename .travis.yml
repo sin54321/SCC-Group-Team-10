@@ -30,7 +30,7 @@ script:
     #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests --with-coverage 
-    - nosetests --with-coverage --cover-erase --cover-package=./tests
+    #- nosetests --with-coverage --cover-erase --cover-package=./tests
     #- coverage run 
     #- coverage xml -o shippable/codecoverage/coverage.xml
 after_success:
@@ -38,4 +38,4 @@ after_success:
 after_script:
   #- vendor/bin/test-reporter
   #tests --verbose
-  - codeclimate-test-reporter
+  #- codeclimate-test-reporter
