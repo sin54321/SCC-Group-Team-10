@@ -58,7 +58,7 @@ def cuckoo_init(quiet=False, debug=False, artwork=False, test=False):
         except KeyboardInterrupt:
             return
 
-    init_loggging()
+    init_logging()
 
     if quiet:
         log.setLevel(logging.WARN)
@@ -113,11 +113,10 @@ if __name__ == "__main__":
 
     if args.clean:
         cuckoo_clean()
-        sys.exit(0)
+        
 
     try:
-        cuckoo_init(quiet=args.quiet, debug=args.debug, artwork=args.artwork,
-                    test=args.test)
+        cuckoo_init(quiet=args.quiet, debug=args.debug, artwork=args.artwork,test=args.test)
         if not args.artwork and not args.test:
             cuckoo_main(max_analysis_count=args.max_analysis_count)
     except CuckooCriticalError as e:
