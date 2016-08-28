@@ -15,10 +15,13 @@ before_install:
     - cd ..
 install:
     - pip install -r requirements.txt
+    - pip install coverage
+    - pip install codeclimate-test-reporter
 script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
+    - py.test --cov=../cuckoo tests/
+    - codeclimate-test-reporter --file .coverage
     #- nosetests
-addons:
-    code_climate:
-        repo_token: 0a165fb4c61446ea00c0ae6ee310b4359678011363d95c8980f7d2e1696b7a73
+after_success:
+  - codeclimate-test-reporter
