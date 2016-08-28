@@ -20,12 +20,12 @@ install:
 script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
-    
     #- coverage run tests/*
-    - py.test --cov = unittest tests/*
-    - codeclimate-test-reporter --file .coverage
-    - coverage report -m
+    #- py.test --cov = unittest tests/*
+    #- codeclimate-test-reporter --file .coverage
+    #- coverage report -m
     #- nosetests --with-coverage 
+    - nosetests --with-coverage --cover-erase --cover-package=your_package
 after_success:
   - codeclimate-test-reporter
 after_script:
