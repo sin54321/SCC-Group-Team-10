@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
     if args.clean:
         cuckoo_clean()
-        
+        sys.exit(0)
 
     try:
         cuckoo_init(quiet=args.quiet, debug=args.debug, artwork=args.artwork,test=args.test)
