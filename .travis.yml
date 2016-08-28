@@ -25,11 +25,11 @@ script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
     #- coverage run tests/*
-    - py.test --cov=modules tests/*
-    - codeclimate-test-reporter --file .coverage
+    #- py.test --cov=modules tests/*
+    #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests --with-coverage 
-    #- nosetests --with-coverage --cover-erase --cover-package=/cuckoo/tests
+    - nosetests --with-coverage --cover-erase --cover-package=./modules
     - coverage run 
     #- coverage xml -o shippable/codecoverage/coverage.xml
 after_success:
