@@ -25,7 +25,7 @@ script:
     #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests --with-coverage 
-    - nosetests --with-coverage --cover-erase --cover-package=your_package
+    - nosetests --with-coverage --cover-erase --cover-package=tests/*
 after_success:
   - codeclimate-test-reporter
 after_script:
