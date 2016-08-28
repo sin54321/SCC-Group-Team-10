@@ -25,8 +25,8 @@ script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
     #- coverage run tests/*
-    #- py.test --cov=/home/travis/virtualenv/python2.7.12/lib/python2.7/site-packages tests/*
-    #- codeclimate-test-reporter --file .coverage
+    - py.test --cov=modules tests/*
+    - codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests --with-coverage 
     #- nosetests --with-coverage --cover-erase --cover-package=/cuckoo/tests
