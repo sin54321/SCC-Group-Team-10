@@ -19,3 +19,6 @@ script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
     #- nosetests
+addons:
+    code_climate:
+        repo_token: 0a165fb4c61446ea00c0ae6ee310b4359678011363d95c8980f7d2e1696b7a73
