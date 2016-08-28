@@ -17,6 +17,7 @@ install:
     - pip install -r requirements.txt
     - pip install coverage
     - pip install codeclimate-test-reporter
+    - pip install nose
 script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
