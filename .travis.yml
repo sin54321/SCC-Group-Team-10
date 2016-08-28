@@ -18,16 +18,22 @@ install:
     - pip install coverage
     - pip install codeclimate-test-reporter
     - pip install nose
+    - python setup.py develop
+    
+before_script: mkdir -p shippable/codecoverage shippable/testresults
 script:
     - python utils/community.py -wafb monitor
     - python cuckoo.py --debug --test
     #- coverage run tests/*
-    - py.test --cov=/home/travis/virtualenv/python2.7.12/lib/python2.7/site-packages tests/*
-    - codeclimate-test-reporter --file .coverage
+    #- py.test --cov=/home/travis/virtualenv/python2.7.12/lib/python2.7/site-packages tests/*
+    #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests --with-coverage 
     #- nosetests --with-coverage --cover-erase --cover-package=/cuckoo/tests
+    - coverage run --source=tests setup.py test
+    - coverage xml -o shippable/codecoverage/coverage.xml
 after_success:
   - codeclimate-test-reporter
 after_script:
   #- vendor/bin/test-reporter
+  tests --verbose
