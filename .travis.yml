@@ -30,7 +30,7 @@ script:
     #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests 
-    - nosetests --with-coverage --cover-erase --cover-package=./cuckoo.py
+    - nosetests --with-coverage --cover-erase --cover-package=./cuckoo
     #- coverage run 
     #- coverage xml -o shippable/codecoverage/coverage.xml
 after_success:
