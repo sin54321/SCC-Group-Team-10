@@ -29,8 +29,8 @@ script:
     #- py.test --cov=modules tests/*
     #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
-    #- nosetests --with-coverage 
-    - nosetests --with-coverage --cover-erase --cover-package=../cuckoo
+    - nosetests 
+    #- nosetests --with-coverage --cover-erase --cover-package=./tests
     #- coverage run 
     #- coverage xml -o shippable/codecoverage/coverage.xml
 after_success:
