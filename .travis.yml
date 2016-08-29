@@ -1,6 +1,8 @@
 branches:
   only:
     - master
+    - testBranch
+    - test
 language: python
 python:
     - 2.7
