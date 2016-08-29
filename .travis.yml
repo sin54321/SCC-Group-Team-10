@@ -18,7 +18,7 @@ install:
     - pip install coverage
     - pip install codeclimate-test-reporter
     - pip install nose
-    - pip install pyyaml
+    - sudo pip install pyyaml
     #- python setup.py develop
     
 before_script: mkdir -p shippable/codecoverage shippable/testresults
@@ -29,8 +29,8 @@ script:
     #- py.test --cov=modules tests/*
     #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
-    - nosetests 
-    #- nosetests --with-coverage --cover-erase --cover-package=./tests
+    #- nosetests 
+    - nosetests --with-coverage --cover-erase --cover-package=./modules
     #- coverage run 
     #- coverage xml -o shippable/codecoverage/coverage.xml
 after_success:
