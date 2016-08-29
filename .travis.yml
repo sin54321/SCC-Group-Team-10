@@ -30,11 +30,13 @@ script:
     #- codeclimate-test-reporter --file .coverage
     #- coverage report -m
     #- nosetests 
-    - nosetests --with-coverage --cover-erase --cover-package=./cuckoo
+    - nosetests --with-coverage --cover-erase --cover-package=./analyzers
     #- coverage run 
     #- coverage xml -o shippable/codecoverage/coverage.xml
+    
 after_success:
   - codeclimate-test-reporter
+  
 after_script:
   #- vendor/bin/test-reporter
   #tests --verbose
